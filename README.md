@@ -1,17 +1,19 @@
-# ACF Icon Selector Field
+# ACF Icon Picker Field
 
-Allows you to create an 'icon-picker' acf-field.
+Permet de créer un champ ACF de type 'icon-picker'.
 
 ---
 
 ## Description
 
-Add the svg icons you want to be available in your theme to an acf folder inside an img folder in your theme. The field returns the name of the svg.
+Utilisation des icônes icomoon à mettre en place directement dans le dossier du thème /assets/fonts (tout extraire à la raicne de ce dossier).
 
-## Compatibility
+## Compatibilité
 
-This ACF field type is compatible with:
+Champ ACF compatible avec :
 [x] ACF 5
+
+*Ajouté directement en tant que fonction pour la compatibilité avec les champs ACF wordplate* 
 
 ## Screenshots
 
@@ -19,13 +21,22 @@ This ACF field type is compatible with:
 
 ## Installation
 
-1. Copy the `acf-icon-picker` folder into your `wp-content/plugins` folder
-2. Activate the Icon Selector plugin via the plugins admin page
-3. Create a new field via ACF and select the Icon Selector type
+1. Copier le dossier `acf-icon-picker` dans `wp-content/plugins`
+2. Activer le plugin depuis l'administration de Wordpress
+3. Créer un champ à l'endroit ou vous le souhaitez comme n'importe quel autre champ
+
+```php
+acf_icon_picker([
+    'name' => 'icon-picker',
+    'label' => __('Icone', ''),
+    'required' => true,
+    ...
+])
+```
 
 ## Filters
 
-Use the below filters to override the default icon folder, path, and / or URL:
+Pour modifier les différents chemin ou URLs dans le cas où ils devaient se trouver ailleurs que dans le dossier VotreTheme/assets/fonts/, voici quelques filtres :
 
 ```php
 // modify the path to the icons directory
@@ -49,14 +60,3 @@ function acf_icon_url( $path_suffix ) {
     return plugin_dir_url( __FILE__ );
 }
 ```
-
-## Changelog
-
-* 1.7.0 - 2 new filters for more control over icon path. Thanks to [benjibee](https://github.com/houke/acf-icon-picker/pull/11)
-* 1.6.0 - Performance fix with lots of icons. Thanks to [idflood](https://github.com/houke/acf-icon-picker/pull/9)
-* 1.5.0 - Fix issue where searching for icons would break preview if icon name has space
-* 1.4.0 - Add filter to change folder where svg icons are stored
-* 1.3.0 - Adding close option on modal
-* 1.2.0 - Adding search filter input to filter through icons by name
-* 1.1.0 - Add button to remove the selected icon when the field is not required
-* 1.0.0 - First release

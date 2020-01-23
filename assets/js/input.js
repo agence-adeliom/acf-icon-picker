@@ -57,7 +57,7 @@
       var margin = 200; // number of px to show above and below.
       var columns = 4;
 
-      var icons = iconsFiltered ? iconsFiltered : iv.icons;
+      var icons = iconsFiltered && iconsFiltered.length ? iconsFiltered : iv.icons;
       var arrayIcons = icons;
 
       function setListHeight() {

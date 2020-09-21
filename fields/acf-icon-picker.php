@@ -24,7 +24,7 @@ if( !class_exists('acf_field_icon_picker') ) :
 
             $this->settings = $settings;
 
-            $this->path_suffix = apply_filters( 'acf_icon_path_suffix', 'assets/fonts/' );
+            $this->path_suffix = apply_filters( 'acf_icon_path_suffix', 'assets/fonts/icomoon/' );
 
             $this->path = apply_filters( 'acf_icon_path', $this->settings['path'] ) . $this->path_suffix;
 

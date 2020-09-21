@@ -26,13 +26,18 @@ Champ ACF compatible avec :
 3. Créer un champ à l'endroit ou vous le souhaitez comme n'importe quel autre champ
 
 ```php
+IconPicker::make("Icône", "icon")->required()->icons(['name-of-your-icon', '....']);
+```
+
+### Ancienne version
+
+```php
 acf_icon_picker([
     'name' => 'icon-picker',
     'label' => __('Icone', ''),
     'required' => true,
     ...
-])
-```
+])```
 
 ## Filters
 

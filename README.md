@@ -22,6 +22,16 @@ Champ ACF compatible avec :
 ## Installation
 
 1. Copier le dossier `acf-icon-picker` dans `wp-content/plugins`
+2. Mettre à jour le composer.json et lancer un composer dump-autoload
+
+```php
+"autoload": {
+  "psr-4": {
+    "Plugins\\AcfIconPicker\\": "web/app/plugins/wp-acf-icon-picker/"
+  }
+}
+```
+
 2. Activer le plugin depuis l'administration de Wordpress
 3. Créer un champ à l'endroit ou vous le souhaitez comme n'importe quel autre champ
 
@@ -37,7 +47,8 @@ acf_icon_picker([
     'label' => __('Icone', ''),
     'required' => true,
     ...
-])```
+])
+```
 
 ## Filters
 

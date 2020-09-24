@@ -3,6 +3,20 @@
 Permet de créer un champ ACF de type 'icon-picker'.
 
 ---
+## Attention, dans icomoon, bien penser à exporter la version classe et ne pas baser la font sur le tag i (conflit avec le BO)
+
+```
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+```
 
 ## Description
 

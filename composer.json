@@ -1,0 +1,8 @@
+{
+    "name": "agence-adeliom/acf-icon-picker",
+    "type": "wordpress-plugin",
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "homepage": "https://github.com/agence-adeliom/acf-icon-picker"
+}

@@ -31,7 +31,7 @@ if( !class_exists('acf_plugin_icon_picker') ) :
         }
 
         function include_field_types( $version = false ) {
-            include_once('fields/acf-icon-picker.php');
+            include_once('src/fields/acf-icon-picker.php');
         }
 
     }
@@ -43,9 +43,6 @@ endif;
 
 
 
-
-use WordPlate\Acf\Field;
-
 if (!function_exists('acf_icon_picker')) {
     /**
      * Get an acf icon picker field settings array.
@@ -54,10 +51,10 @@ if (!function_exists('acf_icon_picker')) {
      *
      * @return \WordPlate\Acf\Field
      */
-    function acf_icon_picker(array $config): Field
+    function acf_icon_picker(array $config): \WordPlate\Acf\Field
     {
         $config = array_merge($config, ['type' => 'icon-picker']);
 
-        return new Field($config, ['name']);
+        return new \WordPlate\Acf\Field($config, ['name']);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Plugins\AcfIconPicker;
+namespace Adeliom\Acf\Fields;
 
 use WordPlate\Acf\Fields\Attributes\DefaultValue;
 use WordPlate\Acf\Fields\Attributes\Instructions;

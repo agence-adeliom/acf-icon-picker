@@ -35,21 +35,32 @@ Champ ACF compatible avec :
 
 ## Installation
 
-1. Copier le dossier `acf-icon-picker` dans `wp-content/plugins`
-2. Mettre à jour le composer.json et lancer un composer dump-autoload
+1. Mettre à jour le composer.json
 
 ```php
-"autoload": {
-  "psr-4": {
-    "Plugins\\AcfIconPicker\\": "web/app/plugins/wp-acf-icon-picker/"
-  }
+"repositories": {
+  ...
+  "adeliom-icon-picker": {
+      "type": "vcs",
+      "url": "https://github.com/agence-adeliom/acf-icon-picker.git"
+  },
+  ...
+}
+...
+"require": {
+  ...
+  "agence-adeliom/acf-icon-picker": "dev-master"
 }
 ```
-
+2. Laner un `composer update`
 2. Activer le plugin depuis l'administration de Wordpress
 3. Créer un champ à l'endroit ou vous le souhaitez comme n'importe quel autre champ
 
 ```php
+use Adeliom\Acf\Fields\IconPicker;
+
+...
+
 IconPicker::make("Icône", "icon")->required()->icons(['name-of-your-icon', '....']);
 ```
 

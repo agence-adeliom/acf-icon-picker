@@ -105,7 +105,7 @@ if( !class_exists('acf_field_icon_picker') ) :
 
             $this->icons = self::BreakCSS($css);
 
-            wp_register_script( 'acf-input-icon-picker', "{$url}assets/js/input.js", array('acf-input'), $version );
+            wp_register_script( 'acf-input-icon-picker', "{$url}src/assets/js/input.js", array('acf-input'), $version );
             wp_enqueue_script('acf-input-icon-picker');
 
             wp_localize_script( 'acf-input-icon-picker', 'iv', array(
@@ -114,7 +114,7 @@ if( !class_exists('acf_field_icon_picker') ) :
                 'no_icons_msg' => sprintf( esc_html__('Pour ajouter des icônes, sauvegarder le contenu de votre dossier icomoon dans /%s de votre thème.', 'acf-icon-picker'), $this->path_suffix)
             ) );
 
-            wp_register_style( 'acf-input-icon-picker', "{$url}assets/css/input.css", array('acf-input'), $version );
+            wp_register_style( 'acf-input-icon-picker', "{$url}src/assets/css/input.css", array('acf-input'), $version );
             wp_register_style( 'acf-input-icon-picker-icomoon', "{$this->url}/style.css", array('acf-input'), $version );
             wp_enqueue_style('acf-input-icon-picker');
             wp_enqueue_style('acf-input-icon-picker-icomoon');

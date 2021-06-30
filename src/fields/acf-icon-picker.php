@@ -24,7 +24,7 @@ if( !class_exists('acf_field_icon_picker') ) :
 
             $this->settings = $settings;
 
-            $this->path_suffix = apply_filters( 'acf_icon_path_suffix', 'build/styles' );
+            $this->path_suffix = apply_filters( 'acf_icon_path_suffix', 'assets/fonts/icomoon/' );
 
             $this->path = apply_filters( 'acf_icon_path', $this->settings['path'] ) . $this->path_suffix;
 
@@ -100,7 +100,7 @@ if( !class_exists('acf_field_icon_picker') ) :
             $url = $this->settings['url'];
             $version = $this->settings['version'];
 
-            $css_url = $this->path . 'icons.css';
+            $css_url = $this->path . 'style.css';
             $css = file_get_contents($css_url);
 
             $this->icons = self::BreakCSS($css);

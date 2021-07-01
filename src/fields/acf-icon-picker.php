@@ -24,7 +24,7 @@ if( !class_exists('acf_field_icon_picker') ) :
 
             $this->settings = $settings;
 
-            $this->svgPicker = true;
+            $this->svgPicker = false;
 
             if($this->svgPicker) {
                 $this->path_suffix = apply_filters( 'acf_icon_path_suffix', 'assets/images/icons/' );

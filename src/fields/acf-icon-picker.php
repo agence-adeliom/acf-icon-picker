@@ -24,9 +24,10 @@ if( !class_exists('acf_field_icon_picker') ) :
 
             $this->settings = $settings;
 
-            $this->svgPicker = apply_filters( 'acf_icon_svg', false);
+            $this->imgPicker = apply_filters( 'acf_icon_image', false);
+            $this->imgFormat = apply_filters( 'acf_icon_image_format', "svg");
 
-            if($this->svgPicker) {
+            if($this->imgPicker) {
                 $this->path_suffix = apply_filters( 'acf_icon_path_suffix', 'assets/images/icons/' );
             } else {
                 $this->path_suffix = apply_filters( 'acf_icon_path_suffix', 'assets/fonts/icomoon/' );
@@ -45,10 +46,10 @@ if( !class_exists('acf_field_icon_picker') ) :
 
             $this->icons = array();
 
-            if($this->svgPicker) {
+            if($this->imgPicker) {
                 $files = array_diff(scandir($this->path), array('.', '..'));
                 foreach ($files as $file) {
-                    if (pathinfo($file, PATHINFO_EXTENSION) == 'svg') {
+                    if (pathinfo($file, PATHINFO_EXTENSION) == $this->imgFormat) {
                         $exploded = explode('.', $file);
                         $icon = array(
                             'name' => $exploded[0],
@@ -95,8 +96,8 @@ if( !class_exists('acf_field_icon_picker') ) :
                     <?php
                     if ($input_icon) {
                         echo '<div class="acf-icon-picker__icon">';
-                        if($this->svgPicker) {
-                            $svg = get_stylesheet_directory_uri() . '/' . $this->path_suffix . $input_icon . '.svg';
+                        if($this->imgPicker) {
+                            $svg = get_stylesheet_directory_uri() . '/' . $this->path_suffix . $input_icon . '.' . $this->imgFormat;
                             echo '<img src="'.$svg.'" alt=""/>';
                         } else {
                             echo '<i class="'. $input_icon .'"></i>';
@@ -125,7 +126,7 @@ if( !class_exists('acf_field_icon_picker') ) :
             $url = $this->settings['url'];
             $version = $this->settings['version'];
 
-            if($this->svgPicker) {
+            if($this->imgPicker) {
                 wp_register_script( 'acf-input-icon-picker', "{$url}/src/assets/js/input-svg.js", array('acf-input'), $version );
                 wp_enqueue_script('acf-input-icon-picker');
 

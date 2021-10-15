@@ -101,10 +101,15 @@ function acf_icon_url( $path_suffix ) {
     return plugin_dir_url( __FILE__ );
 }
 
-// allowed to choose between SVG or Font
-add_filter( 'acf_icon_svg', 'acf_icon_svg' );
-
-function acf_icon_svg() {
+// allowed to choose between Image or Font
+add_filter( 'acf_icon_image', 'acf_icon_image' );
+function acf_icon_image() {
     return true;
+}
+
+// modify the format (default : svg)
+add_filter( 'acf_icon_image_format', 'acf_icon_image_format' );
+function acf_icon_image_format() {
+    return "png";
 }
 ```

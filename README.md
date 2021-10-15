@@ -100,4 +100,11 @@ add_filter( 'acf_icon_url', 'acf_icon_url' );
 function acf_icon_url( $path_suffix ) {
     return plugin_dir_url( __FILE__ );
 }
+
+// allowed to choose between SVG or Font
+add_filter( 'acf_icon_svg', 'acf_icon_svg' );
+
+function acf_icon_svg() {
+    return true;
+}
 ```

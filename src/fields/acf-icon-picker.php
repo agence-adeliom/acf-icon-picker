@@ -27,10 +27,12 @@ if( !class_exists('acf_field_icon_picker') ) :
             $this->imgPicker = apply_filters( 'acf_icon_image', false);
             $this->imgFormat = apply_filters( 'acf_icon_image_format', "svg");
 
+            $this->filename = apply_filters('acf_icon_filename', 'style.css');
+
             if($this->imgPicker) {
                 $this->path_suffix = apply_filters( 'acf_icon_path_suffix', 'assets/images/icons/' );
             } else {
-                $this->path_suffix = apply_filters( 'acf_icon_path_suffix', 'assets/fonts/icomoon/' );
+                $this->path_suffix = apply_filters( 'acf_icon_path_suffix', 'assets/fonts/icons/' );
             }
 
             $this->path = apply_filters( 'acf_icon_path', $this->settings['path'] ) . $this->path_suffix;
@@ -71,7 +73,7 @@ if( !class_exists('acf_field_icon_picker') ) :
             {
                 $selector = trim($arr[1][$i]);
                 $selector = str_replace('.', '', $selector);
-                if(!empty(preg_match("/:before/",$selector,$m)) && empty(preg_match("/path/",$selector,$m))){
+                if(str_starts_with($selector, 'icon-') && str_ends_with($selector, ':before')){
                     $selector = str_replace(':before', '', $selector);
                     $results[] = $selector ;
                 }
@@ -137,7 +139,7 @@ if( !class_exists('acf_field_icon_picker') ) :
                 ) );
             }
             else {
-                $css_url = $this->path . 'style.css';
+                $css_url = $this->path . $this->filename;
 
                 if(!file_exists($css_url)) {
                     return;
@@ -153,7 +155,7 @@ if( !class_exists('acf_field_icon_picker') ) :
                 wp_localize_script( 'acf-input-icon-picker', 'iv', array(
                     'path' => $this->url,
                     'icons' => $this->icons,
-                    'no_icons_msg' => sprintf( esc_html__('Pour ajouter des icônes, sauvegarder le contenu de votre dossier icomoon dans /%s de votre thème.', 'acf-icon-picker'), $this->path_suffix)
+                    'no_icons_msg' => sprintf( esc_html__('Pour ajouter des icônes, sauvegarder le contenu de votre dossier dans /%s de votre thème.', 'acf-icon-picker'), $this->path_suffix)
                 ) );
             }
 

@@ -112,4 +112,10 @@ add_filter( 'acf_icon_image_format', 'acf_icon_image_format' );
 function acf_icon_image_format() {
     return "png";
 }
+
+// modify the filename (fantasticon)
+add_filter( 'acf_icon_filename', 'acf_icon_filename' );
+function acf_icon_filename() {
+    return "icons.scss";
+}
 ```

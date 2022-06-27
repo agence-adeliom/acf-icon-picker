@@ -15,6 +15,7 @@
     );
     jQuery('.acf-icon-picker__popup-holder').trigger('close');
     jQuery('.acf-icon-picker__popup-holder').remove();
+    jQuery('.acf-icon-picker__img input').trigger('change');
 
     active_item
       .parents('.acf-icon-picker')
@@ -203,6 +204,8 @@
       parent
         .find('.acf-icon-picker__icon')
         .html('<span class="acf-icon-picker__icon--span">Ajouter</span>');
+      
+       jQuery('.acf-icon-picker__img input').trigger('change');4
 
       parent
         .find('.acf-icon-picker__remove')

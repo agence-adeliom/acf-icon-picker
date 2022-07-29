@@ -1,14 +1,21 @@
 {
     "name": "agence-adeliom/acf-icon-picker",
+    "type": "1.0.0",
     "type": "wordpress-plugin",
     "require": {
+        "php": "^8.0",
         "composer/installers": "^1.0 || ^2.0",
-        "wordplate/acf": "*"
+        "vinkla/extended-acf": "*"
     },
     "homepage": "https://github.com/agence-adeliom/acf-icon-picker",
     "autoload": {
         "psr-4": {
             "Adeliom\\Acf\\Fields\\": "src"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
         }
     }
 }

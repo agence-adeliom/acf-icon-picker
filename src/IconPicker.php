@@ -13,7 +13,7 @@ class IconPicker extends Field
     use Instructions;
     use Required;
 
-    protected $type = 'icon-picker';
+    protected ?string $type = 'icon-picker';
 
     /**
      * @param array $value

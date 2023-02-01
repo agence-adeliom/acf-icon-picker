@@ -127,6 +127,11 @@ if( !class_exists('acf_field_icon_picker') ) :
 
             $url = $this->settings['url'];
             $version = $this->settings['version'];
+		
+	    wp_register_style( 'acf-input-icon-picker', "{$url}/src/assets/css/input.css", array('acf-input'), $version );
+            wp_register_style( 'acf-input-icon-picker-icomoon', "{$this->url}/style.css", array('acf-input'), $version );
+            wp_enqueue_style('acf-input-icon-picker');
+            wp_enqueue_style('acf-input-icon-picker-icomoon');
 
             if($this->imgPicker) {
                 wp_register_script( 'acf-input-icon-picker', "{$url}/src/assets/js/input-svg.js", array('acf-input'), $version );
@@ -158,11 +163,6 @@ if( !class_exists('acf_field_icon_picker') ) :
                     'no_icons_msg' => sprintf( esc_html__('Pour ajouter des icônes, sauvegarder le contenu de votre dossier dans /%s de votre thème.', 'acf-icon-picker'), $this->path_suffix)
                 ) );
             }
-
-            wp_register_style( 'acf-input-icon-picker', "{$url}/src/assets/css/input.css", array('acf-input'), $version );
-            wp_register_style( 'acf-input-icon-picker-icomoon', "{$this->url}/style.css", array('acf-input'), $version );
-            wp_enqueue_style('acf-input-icon-picker');
-            wp_enqueue_style('acf-input-icon-picker-icomoon');
         }
     }
     new acf_field_icon_picker( $this->settings );

@@ -12,6 +12,7 @@ class IconPicker extends Field
     use DefaultValue;
     use Instructions;
     use Required;
+    use ConditionalLogic;
 
     protected ?string $type = 'icon-picker';
 
